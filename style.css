@@ -1,0 +1,92 @@
+:root {
+  --azul: #2357d8;
+  --azul-escuro: #183b98;
+  --roxo: #7546d8;
+  --fundo: #f0f4ff;
+  --texto: #202947;
+  --verde: #17834d;
+  --vermelho: #bd3342;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  color: var(--texto);
+  background: radial-gradient(circle at top left, #dce8ff, transparent 38%), linear-gradient(135deg, #f4f7ff, #f8f0ff);
+  display: flex;
+  flex-direction: column;
+}
+.topo {
+  width: min(920px, 100%);
+  margin: 0 auto;
+  padding: 28px 22px 12px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.marca {
+  width: 68px; height: 68px; flex: 0 0 68px;
+  display: grid; place-items: center;
+  border-radius: 20px; background: white;
+  box-shadow: 0 8px 24px #314c971a; font-size: 2.2rem;
+}
+.etiqueta { margin: 0 0 4px; color: var(--roxo); font-size: .75rem; font-weight: 800; letter-spacing: 1.4px; }
+h1 { margin: 0; font-size: clamp(1.65rem, 5vw, 2.5rem); color: var(--azul-escuro); }
+.subtitulo { margin: 5px 0 0; color: #59627f; }
+main { width: min(700px, 100%); padding: 16px 18px 28px; margin: 0 auto; flex: 1; }
+.cartao {
+  background: #fff; border-radius: 24px; padding: clamp(22px, 5vw, 38px);
+  box-shadow: 0 16px 45px #253f8318; border: 1px solid #e4eaff;
+}
+.tela { display: none; }
+.tela.ativa { display: block; animation: aparecer .25s ease-out; }
+@keyframes aparecer { from { opacity: 0; transform: translateY(7px); } to { opacity: 1; transform: translateY(0); } }
+h2 { color: var(--azul-escuro); font-size: clamp(1.4rem, 4vw, 1.9rem); margin: 12px 0; }
+p { line-height: 1.55; }
+.ilustracao { font-size: 2rem; letter-spacing: 8px; background: #f0edff; padding: 16px; border-radius: 16px; text-align: center; }
+.regras { list-style: none; padding: 0; line-height: 2; margin: 18px 0 24px; }
+label { display: block; font-weight: 700; margin-bottom: 7px; }
+input {
+  width: 100%; padding: 13px 14px; border: 2px solid #dbe2f5; border-radius: 12px;
+  font: inherit; margin-bottom: 16px; color: var(--texto);
+}
+input:focus, button:focus-visible { outline: 3px solid #f7bd44; outline-offset: 3px; }
+.botao {
+  border: 0; border-radius: 13px; padding: 14px 18px; font: inherit; font-weight: 800;
+  cursor: pointer; transition: transform .15s, filter .15s; min-height: 48px;
+}
+.botao:hover { transform: translateY(-2px); filter: brightness(1.04); }
+.principal { color: white; background: linear-gradient(100deg, var(--azul), var(--roxo)); width: 100%; }
+.linha-status { display: flex; align-items: center; justify-content: space-between; gap: 12px; font-weight: 800; font-size: .95rem; }
+.pontos { color: #805500; background: #fff4cf; padding: 8px 12px; border-radius: 20px; white-space: nowrap; }
+.barra-fundo { height: 10px; background: #e9edfa; border-radius: 99px; margin: 17px 0 25px; overflow: hidden; }
+.barra { height: 100%; width: 0; background: linear-gradient(90deg, #2fbd85, #6a55e8); transition: width .25s; }
+.categoria { display: inline-block; color: #6741bd; background: #f0eaff; padding: 6px 11px; border-radius: 99px; font-size: .82rem; font-weight: 800; }
+#pergunta { margin: 16px 0 20px; line-height: 1.35; }
+.opcoes { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.opcao {
+  padding: 15px; min-height: 58px; background: #f8f9ff; border: 2px solid #e0e6f8;
+  border-radius: 13px; font: inherit; font-weight: 800; cursor: pointer; color: var(--texto);
+}
+.opcao:hover:not(:disabled) { border-color: var(--azul); background: #eef2ff; }
+.opcao:disabled { cursor: default; }
+.opcao.certa { border-color: #29a56b; background: #e5f8ed; color: #11673b; }
+.opcao.errada { border-color: #df6874; background: #fff0f1; color: #a32332; }
+.retorno { min-height: 28px; margin: 16px 0; line-height: 1.5; font-weight: 700; }
+.retorno.correto { color: var(--verde); }
+.retorno.incorreto { color: var(--vermelho); }
+.escondido { display: none; }
+.trofeu { text-align: center; font-size: 4rem; }
+#resultado { text-align: center; }
+.placar-final { margin: 20px auto; padding: 18px; max-width: 240px; border-radius: 20px; background: #fff4cf; color: #805500; }
+.placar-final span { display: block; font-size: 3.2rem; font-weight: 900; }
+.placar-final small { font-weight: 800; }
+footer { text-align: center; color: #626c89; font-size: .9rem; padding: 16px; }
+@media (max-width: 480px) {
+  .topo { padding-top: 20px; gap: 12px; }
+  .marca { width: 54px; height: 54px; flex-basis: 54px; font-size: 1.8rem; border-radius: 16px; }
+  .opcoes { grid-template-columns: 1fr; }
+  .linha-status { align-items: flex-start; flex-direction: column; }
+  .pontos { align-self: flex-end; }
+}

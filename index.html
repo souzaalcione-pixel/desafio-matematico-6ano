@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Jogo educativo de matemática para estudantes do 6º ano.">
+  <title>Desafio Matemático | 6º ano</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="topo">
+    <div class="marca" aria-hidden="true">🧠</div>
+    <div>
+      <p class="etiqueta">JOGO EDUCATIVO • 6º ANO</p>
+      <h1>Desafio Matemático</h1>
+      <p class="subtitulo">Aprender matemática pode ser divertido!</p>
+    </div>
+  </header>
+
+  <main>
+    <section id="inicio" class="cartao tela ativa" aria-labelledby="titulo-inicio">
+      <div class="ilustracao" aria-hidden="true">➗ ✖️ ➕ ➖</div>
+      <h2 id="titulo-inicio">Vamos jogar?</h2>
+      <p>Responda a 10 perguntas de matemática e descubra quantos pontos consegue fazer.</p>
+      <ul class="regras">
+        <li>⭐ Cada resposta correta vale 10 pontos.</li>
+        <li>💡 Você verá uma explicação depois de responder.</li>
+        <li>🎯 O desafio é aprender e se divertir!</li>
+      </ul>
+      <label for="nome-jogador">Seu nome (opcional)</label>
+      <input id="nome-jogador" type="text" maxlength="24" placeholder="Digite seu nome">
+      <button id="botao-comecar" class="botao principal">Começar o desafio 🚀</button>
+    </section>
+
+    <section id="jogo" class="cartao tela" aria-labelledby="pergunta" aria-live="polite">
+      <div class="linha-status">
+        <span id="contador">Pergunta 1 de 10</span>
+        <span class="pontos">⭐ <strong id="pontuacao">0</strong> pontos</span>
+      </div>
+      <div class="barra-fundo" role="progressbar" aria-label="Progresso do jogo" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0" id="progresso">
+        <div id="barra" class="barra"></div>
+      </div>
+      <span id="categoria" class="categoria">Operações</span>
+      <h2 id="pergunta">Quanto é 7 + 5?</h2>
+      <div id="opcoes" class="opcoes"></div>
+      <div id="retorno" class="retorno" role="status" aria-live="polite"></div>
+      <button id="botao-proxima" class="botao principal escondido">Próxima pergunta ➜</button>
+    </section>
+
+    <section id="resultado" class="cartao tela" aria-labelledby="titulo-resultado" aria-live="polite">
+      <div class="trofeu" aria-hidden="true">🏆</div>
+      <h2 id="titulo-resultado">Desafio concluído!</h2>
+      <p id="mensagem-final"></p>
+      <div class="placar-final"><span id="pontuacao-final">0</span><small>de 100 pontos</small></div>
+      <p id="detalhes-final"></p>
+      <button id="botao-reiniciar" class="botao principal">Jogar novamente 🔄</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>Feito para estudar matemática de um jeito divertido 💙</p>
+  </footer>
+</body>
+</html>
